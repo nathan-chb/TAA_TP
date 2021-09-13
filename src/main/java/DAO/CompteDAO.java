@@ -12,8 +12,8 @@ public class CompteDAO {
 
     protected EntityManager entityManager;
 
-    public CompteDAO(EntityManager entityManager){
-        this.entityManager = entityManager;
+    public CompteDAO(){
+        this.entityManager = EntityManagerHelper.getEntityManager();
     }
 
     public Compte findOne(Object id) {

@@ -14,8 +14,8 @@ public class ProfessionelDAO {
 
     protected EntityManager entityManager;
 
-    public ProfessionelDAO(EntityManager entityManager){
-        this.entityManager = entityManager;
+    public ProfessionelDAO(){
+        this.entityManager = EntityManagerHelper.getEntityManager();
     }
 
     public Professionel findOne(Object id) {

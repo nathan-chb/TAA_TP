@@ -1,7 +1,9 @@
 DAO/CompteDAO.class
 model/Utilisateur$UtilisateurPK.class
+servlet/UserInfo.class
 DAO/RdvDAO.class
 DAO/UtilisateurDAO.class
+servlet/MyServlet.class
 DAO/GenericDAO.class
 DAO/Dao.class
 jpa/EntityManagerHelper.class

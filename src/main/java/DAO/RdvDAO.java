@@ -12,8 +12,8 @@ public class RdvDAO {
 
     protected EntityManager entityManager;
 
-    public RdvDAO(EntityManager entityManager){
-        this.entityManager = entityManager;
+    public RdvDAO(){
+        this.entityManager = EntityManagerHelper.getEntityManager();
     }
 
     public Rdv findOne(Object id) {

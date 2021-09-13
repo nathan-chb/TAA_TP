@@ -1,7 +1,13 @@
 package servlet;
 
+import DAO.ProfessionelDAO;
+import DAO.UtilisateurDAO;
+import model.Professionel;
+import model.Utilisateur;
+
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,15 +16,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(name="mytest",
-        urlPatterns={"/myurl"})
+        urlPatterns={"/bdd"})
 public class MyServlet extends HttpServlet {
+
+    ProfessionelDAO professionelDAO = new ProfessionelDAO();
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        List<Professionel> list = professionelDAO.findAll();
+        PrintWriter p = resp.getWriter();
+        resp.setContentType("text/html");
 
-        PrintWriter p = new PrintWriter(resp.getOutputStream());
-        p.print("Hello world");
+        for (Professionel i : list){
+            p.print(i.getUtilisateurPK().getNom()+"\n");
+        }
+        p.println("\n<html>\n" +
+                "<body>\n" +
+                "<FORM Method=\"POST\" Action=\"/bdd\">\n" +
+                "    Prenom :         <INPUT type=\"text\" size=\"20\" name=\"name\"><BR>\n" +
+                "    Nom :     <INPUT type=\"text\" size=\"20\" name=\"firstname\"><BR>\n" +
+                "    <INPUT type=submit value=Send>\n" +
+                "</FORM>\n" +
+                "</body>\n" +
+                "</html>\n");
         p.flush();
 
     }
@@ -26,7 +48,9 @@ public class MyServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        super.doPost(req, resp);
+        Professionel user = new Professionel();
+        user.setUtilisateurPK(new Utilisateur.UtilisateurPK(req.getParameter("name"),req.getParameter("firstname")));
+        professionelDAO.update(user);
+        doGet(req, resp);
     }
 }

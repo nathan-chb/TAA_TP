@@ -25,10 +25,10 @@ public class JpaTest {
 				.createEntityManagerFactory("mysql");
 		EntityManager manager = factory.createEntityManager();
 		try {
-			ProfessionelDAO professionelDAO = new ProfessionelDAO(manager);
+			ProfessionelDAO professionelDAO = new ProfessionelDAO();
 			Professionel bernard = new Professionel();
 			bernard.setUtilisateurPK(new Utilisateur.UtilisateurPK("norman","bernard"));
-			professionelDAO.save(bernard);
+			professionelDAO.update(bernard);
 
 			for (Professionel i : professionelDAO.findAll()){
 				System.out.println(i.getUtilisateurPK().getPrenom());

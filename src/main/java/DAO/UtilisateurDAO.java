@@ -12,8 +12,8 @@ public class UtilisateurDAO {
 
     protected EntityManager entityManager;
 
-    public UtilisateurDAO(EntityManager entityManager){
-        this.entityManager = entityManager;
+    public UtilisateurDAO(){
+        this.entityManager = EntityManagerHelper.getEntityManager();
     }
 
     public Utilisateur findOne(Object id) {
