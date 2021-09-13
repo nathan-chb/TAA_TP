@@ -28,10 +28,15 @@ public class MyServlet extends HttpServlet {
         List<Professionel> list = professionelDAO.findAll();
         PrintWriter p = resp.getWriter();
         resp.setContentType("text/html");
-
+        p.print("<html> <table> ");
+        int iter = 0;
         for (Professionel i : list){
-            p.print(i.getUtilisateurPK().getNom()+"\n");
+            p.print("<tr> <td>" + i.getUtilisateurPK().getNom()+ "</td>");
+            p.print("<td>" + i.getUtilisateurPK().getPrenom()+ "</td>");
+            p.print("<td> <input type=\"submit\" name=\"button"+ i +"\" value=\"delete\" /> </td> </tr>");
+            iter++;
         }
+        p.print("</table>");
         p.println("\n<html>\n" +
                 "<body>\n" +
                 "<FORM Method=\"POST\" Action=\"/bdd\">\n" +
@@ -49,7 +54,7 @@ public class MyServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         Professionel user = new Professionel();
-        user.setUtilisateurPK(new Utilisateur.UtilisateurPK(req.getParameter("name"),req.getParameter("firstname")));
+        user.setUtilisateurPK(new Utilisateur.UtilisateurPK(req.getParameter("name"), req.getParameter("firstname")));
         professionelDAO.update(user);
         doGet(req, resp);
     }
