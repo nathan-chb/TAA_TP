@@ -14,7 +14,7 @@ public class Monitor {
 
     @Before(" execution(* tp3taa..*.*(..))")
     public void log(JoinPoint joinPoint){
-        System.out.println("\nClass : " + joinPoint.getTarget() + ", method : " + joinPoint);
+        System.out.println("Class : " + joinPoint.getTarget() + ", method : " + joinPoint);
     }
 
     @Around("traceInvocationPointcut()")

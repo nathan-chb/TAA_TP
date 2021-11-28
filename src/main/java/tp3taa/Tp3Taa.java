@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import tp3taa.interfaces.IRun;
 
+import java.util.logging.Logger;
+
 @SpringBootApplication
 public class Tp3Taa implements CommandLineRunner {
 
@@ -16,6 +18,8 @@ public class Tp3Taa implements CommandLineRunner {
 
 
     public void run(String... args) {
+        Logger log = Logger.getGlobal();
+        log.info("Application lancée");
         client.run();
     }
 

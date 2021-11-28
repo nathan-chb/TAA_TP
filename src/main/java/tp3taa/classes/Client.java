@@ -10,6 +10,7 @@ import java.util.List;
 public class Client implements IRun, IClient {
 
     int numCompte = 1386432;
+    String adresse = "25 rue Charles de Gaulle";
 
     @Autowired
     ILane ilane;
@@ -20,9 +21,15 @@ public class Client implements IRun, IClient {
 
     @Override
     public void run() {
-        iJustHaveALook.getPrice("mozzarella", true);
-        ilane.addItemToCart("mozzarella", 5);
-        ilane.addItemToCart("jambon", 2);
+        System.out.println("===================================");
+        System.out.println("Scenario 1 : ");
+        iFastLane.oneShotOrder(4,"jambon", numCompte, adresse);
+        System.out.println("===================================");
+        System.out.println("Scenario 2 : ");
+        ilane.addItemToCart("peanut butter", 2);
+        ilane.addItemToCart("jelly", 2);
+        ilane.addItemToCart("bread", 6);
         ilane.pay(numCompte);
+        System.out.println("===================================");
     }
 }

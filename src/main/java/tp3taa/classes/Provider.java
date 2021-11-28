@@ -18,6 +18,6 @@ public class Provider implements IProvider {
     @Override
     public void order(int quant, String article, int numCompte, String adresse) {
 
-        System.out.println("\n Le magasin a été réaprovisionné : " + article + "(x" + quant + ")");
+        System.out.println("\nLe magasin a été réaprovisionné : " + article + "(x" + quant + ")");
     }
 }
