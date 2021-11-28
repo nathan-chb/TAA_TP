@@ -24,7 +24,7 @@ Le Client ajoute du beurre de cacahuètes, de la confiture et du pain à son pan
 Pour la mise en place de l'AOP j'ai créé la classe Monitor.
 Afin de tester le côté trace de l'aspect j'ai implémenté une méthode de type before avant toutes les méthodes de mon projet qui indique à l'utilidateur les classe appelante ainsi que la méthode appelée
 ![Before](images/before.png)
-Et pour le côté sécurité j'ai mis en place une méthode de type around qui permet le calcul du temps d'execution de toutes les méthodes de la classe Client.
+Et pour le côté sécurité j'ai mis en place une méthode de type around qui permet le calcul du temps d'execution de la méthode run du Client.
 ![around](images/around.png)
 
 ##Partie 3
