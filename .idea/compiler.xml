@@ -6,7 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="testjpa" />
+        <module name="JaxRSOpenAPI" />
+        <module name="jaxrs-example" />
         <module name="tpjpa2021" />
       </profile>
     </annotationProcessing>
