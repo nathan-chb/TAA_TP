@@ -29,7 +29,7 @@ public class CompteController {
 
     @RequestMapping("/addCompte")
     @ResponseBody
-    public String addCompte( @RequestParam Compte compte)  {
+    public String addCompte( @RequestBody Compte compte)  {
         compteDao.save(compte);
         return "Compte ajouté !";
     }

@@ -31,7 +31,7 @@ public class RdvController {
 
     @RequestMapping("/addRdv")
     @ResponseBody
-    public String addRdv(@RequestParam Rdv rdv)  {
+    public String addRdv(@RequestBody Rdv rdv)  {
         rdvDAO.save(rdv);
         return "RDV ajouté !";
     }

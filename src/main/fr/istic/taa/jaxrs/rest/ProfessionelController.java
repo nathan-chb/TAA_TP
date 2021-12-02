@@ -32,7 +32,7 @@ public class ProfessionelController {
 
     @RequestMapping("/addPro")
     @ResponseBody
-    public String addPro(@RequestParam Professionel professionel) {
+    public String addPro(@RequestBody Professionel professionel) {
         professionelDAO.save(professionel);
         return "pro ajouté !";
     }

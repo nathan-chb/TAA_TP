@@ -31,7 +31,7 @@ public class UtilisateurController {
 
     @RequestMapping("/addUtilisateur")
     @ResponseBody
-    public String addCompte(@RequestParam Utilisateur utilisateur)  {
+    public String addCompte(@RequestBody Utilisateur utilisateur)  {
         utilisateurDAO.save(utilisateur);
         return "utilisateur ajouté !";
     }
